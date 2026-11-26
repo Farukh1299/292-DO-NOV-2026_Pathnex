@@ -1,0 +1,113 @@
+Day 02 — Services & Tags
+
+Ansible - Install & Enable ngnix
+- name Install and start Nginx on Pathnex
+Hosts:all
+
+task :
+-name Install ngnix 
+yum:
+name:ngnix
+state:present
+
+-name Enable ngnix
+service:
+name:ngnix
+state: started
+enabled: yes
+
+Terraform - EC2 with Tags (r5.2xlarge)
+provider "aws"{
+ami     ="ami-0abcd1234abcd1234"     
+instance_type = "r5.2xlarge"
+
+tags = {
+ name     = "Pathnex-server"
+ Envoirment = "Training"
+ Owner = "PathnexStudent"
+
+}
+
+}
+
+# Kubenetes - Deloyment with 2 Replicas
+
+api-versio: apps/v1
+kind:Deployment
+metadata:
+
+name: pathnex-deployement
+spec:
+repkicas/;2
+selector:
+matchLabels:
+ app: pathnex-ap
+tamplate:
+metadata:
+labels:
+ app:pathnex-app
+spec:
+  containers:
+    -name:app
+     image:nginx
+     ports:
+
+    -containerPort:80
+
+
+ # Shell script - Disk Usage
+ #!/bin/bash
+df -h
+
+
+  # Docker
+  # Docker Images & Containers
+
+   docker pull ubuntu
+   docker images
+   docker ps -a
+
+
+#  Docker File
+
+  From ubuntu:22.04
+  Run apt update 
+  CMD ["echo","Hello Pathnex"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
